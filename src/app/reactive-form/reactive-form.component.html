@@ -1,0 +1,42 @@
+<h2 class="text-primary">Registration Form {{ registrationForm.status }}</h2>
+<form action="" [formGroup]="registrationForm" (ngSubmit) = "submitForm()">
+    <div class="form-group">
+        <label for="firstName">First Name: </label>
+        <input type="text" [class.is-invalid]="registrationForm.get('firstName')?.touched && registrationForm.get('firstName')?.invalid" class="form-control" name="firstName" formControlName="firstName">
+        <div *ngIf="registrationForm.get('firstName')?.touched && registrationForm.get('firstName')?.invalid">
+            <small class="text-danger" *ngIf="registrationForm.get('firstName')?.errors?.['required']">First Name is Required</small>
+            <small class="text-danger" *ngIf="registrationForm.get('firstName')?.errors?.['minlength']">First Name cannot be less than 5 letters</small>
+            <small class="text-danger" *ngIf="registrationForm.get('firstName')?.errors?.['invalidWord']">{{ registrationForm.get('firstName')?.errors?.['invalidWord']?.value }} cannot be First Name</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name: </label>
+        <input type="text" class="form-control" [class.is-invalid]="lastName?.touched && lastName?.invalid" name="lastName" id="" required formControlName="lastName">
+        <div *ngIf="lastName?.touched && lastName?.invalid">
+            <small class="text-danger" *ngIf="lastName?.errors?.['required']">Last Name is Required</small>
+            <small class="text-danger" *ngIf="lastName?.errors?.['minlength']">Last Name cannot be less than 7 letters</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email: </label>
+        <input type="email" class="form-control" name="email" id="" required formControlName="email">
+    </div>
+    <div class="form-group">
+        <label for="password">Password: </label>
+        <input type="password" [class.is-invalid]="registrationForm.get('password')?.touched && registrationForm.get('password')?.invalid" class="form-control" name="password" required id="" formControlName="password">
+        <div *ngIf="registrationForm.get('password')?.touched && registrationForm.get('password')?.invalid">
+            <small class="text-danger" *ngIf="registrationForm.get('password')?.errors?.['required']">Password is Required</small>
+            <small class="text-danger" *ngIf="registrationForm.get('password')?.errors?.['minlength']">Minimum Password Length should be 7</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Confirm Password: </label>
+        <input type="password" [class.is-invalid]="registrationForm.get('confirmPassword')?.touched && registrationForm?.errors?.['mismatch']" class="form-control" name="confirmPassword" required id="" formControlName="confirmPassword">
+        <div *ngIf="registrationForm.get('confirmPassword')?.touched && registrationForm?.errors?.['mismatch']">
+            <small class="text-danger" *ngIf="registrationForm?.errors?.['mismatch']">Password Mismatch</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled] = "!registrationForm.valid">Submit</button>
+
+    <div>{{registrationForm.value | json }}</div>
+</form>

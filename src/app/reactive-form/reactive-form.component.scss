@@ -1,0 +1,35 @@
+.form-group{
+    margin: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    .form-control{
+        display: block;
+        width: 40%;
+        padding: 6px;
+        border-radius: 3px;
+        border: none;
+        margin-top: 10px;
+        outline: none;
+        box-shadow: 0 0 2px #e3e3e3;
+    }
+    .form-control:focus{
+        box-shadow: 0 0 2px #00f;
+    }
+}
+.btn{
+    display: block;
+    width: 100px;
+    border-radius: 3px;
+    padding: 6px;
+    outline: 0;
+    border: 0;
+    margin: 10px;
+    font-size: 12px;
+    font-weight: 300;
+}
+.btn-primary{
+    color: #fff;
+    background: #00f;
+}
+.btn-primary:hover{
+    background: rgba(0, 0, 255, 0.815);
+}

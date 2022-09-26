@@ -1,0 +1,45 @@
+<p>Hello World</p>
+
+
+<!-- For Loop -->
+<select name="" id="">
+  <option *ngFor="let i of months" [value]="i">{{i}}</option>
+</select>
+
+<!-- If Statement -->
+<div *ngIf = 'isAvailable'>The condition is true</div>
+
+<!-- If then else -->
+<div *ngIf = 'isAvailable; then condition1 else condition2'></div>
+<ng-template #condition1>The condition is true</ng-template>
+<ng-template #condition2>The condition is not true</ng-template>
+
+<!-- Event Binding -->
+<button (click) = 'myClickFunction($event)'>click me</button>
+
+<!-- Custom Directive -->
+<div appChangeText>Text to be changed</div>
+
+<!-- Pipes -->
+<h1>Uppercase Pipe</h1>
+<b>{{title | uppercase}}</b><br/>
+<h1>Lowercase Pipe</h1> 
+<b>{{title | lowercase}}</b> 
+<h1>Currency Pipe</h1> 
+<b>{{6589.23 | currency:"USD"}}</b><br/> 
+<b>{{6589.23 | currency:"USD":true}}</b>
+<h1>Date pipe</h1> 
+<b>{{todaydate | date:'d/M/y'}}</b><br/> 
+<b>{{todaydate | date:'shortTime'}}</b>
+<h1>Decimal Pipe</h1>
+<b>{{ 454.78787814 | number: '3.4-4' }}</b>
+<div style = "width:40%;border:solid 1px black;"> 
+  <h1>Json Pipe</h1>
+  <b>{{ jsonval | json }}</b>
+  <h1>Percent Pipe</h1>
+  <b>{{00.54565 | percent}}</b>
+  <h1>Slice Pipe</h1>
+  <b>{{months | slice:2:6}}</b>
+</div>
+<br><br><br>
+<app-reactive-form></app-reactive-form>
