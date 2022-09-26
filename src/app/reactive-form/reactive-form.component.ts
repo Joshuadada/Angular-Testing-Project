@@ -25,7 +25,7 @@ export class ReactiveFormComponent implements OnInit {
     firstName: ['', [Validators.required, Validators.minLength(5), forbiddenNameValidator(/admin/)]],
     lastName: ['', [Validators.required, Validators.minLength(7)]],
     email: ['', [Validators.required, Validators.minLength(7)]],
-    password: ['', [Validators.required, Validators.minLength(7)]],
+    password: ['', [Validators.required, Validators.pattern(`(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}`)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(7)]]
   }, {
     validator: passwordValidator
